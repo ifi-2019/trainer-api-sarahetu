@@ -5,10 +5,7 @@ import com.ifi.trainer_api.service.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/trainers")
@@ -30,4 +27,15 @@ public class TrainerController {
         return this.trainerService.getTrainer(name);
     }
 
+    //avoir
+    @DeleteMapping("/{name}")
+    void deleteTrainer(@PathVariable String name){
+        this.trainerService.deleteTrainer(name);
+    }
+
+    // avoir
+    @PostMapping("/{name}")
+    Trainer postTrainer(@PathVariable String name){
+        return this.trainerService.getTrainer(name);
+    }
 }
