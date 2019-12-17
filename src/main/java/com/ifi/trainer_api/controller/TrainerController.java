@@ -19,23 +19,23 @@ public class TrainerController {
 
     @GetMapping("/")
     Iterable<Trainer> getAllTrainers(){
-       return this.trainerService.getAllTrainers();
+        return trainerService.getAllTrainers();
     }
 
     @GetMapping("/{name}")
     Trainer getTrainer(@PathVariable String name){
-        return this.trainerService.getTrainer(name);
+        return trainerService.getTrainer(name);
     }
 
-    //avoir
+
     @DeleteMapping("/{name}")
     void deleteTrainer(@PathVariable String name){
         this.trainerService.deleteTrainer(name);
     }
 
-    // avoir
-    @PostMapping("/{name}")
-    Trainer postTrainer(@PathVariable String name){
-        return this.trainerService.getTrainer(name);
+    @PostMapping("/")
+    Trainer newTrainer(@RequestBody Trainer trainer){
+        return trainerService.createTrainer(trainer);
     }
+
 }
